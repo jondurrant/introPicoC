@@ -6,6 +6,7 @@
 
 #include "blink.h"
 #include "pico/stdlib.h"
+#include "hardware/gpio.h"
 
 /***
  * Function to setup GPIO for Blink PICO inbuild LED
