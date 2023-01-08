@@ -23,7 +23,7 @@ int main(){
 	//Setup up PWM to fade LED
 	gpio_set_function(LED, GPIO_FUNC_PWM);
 	pwm_set_gpio_level(LED, 0);
-	uint slice_num = pwm_gpio_to_slice_num(0);
+	uint slice_num = pwm_gpio_to_slice_num(LED);
 	pwm_set_enabled(slice_num, true);
 
 	int pwdLvl = 0;
