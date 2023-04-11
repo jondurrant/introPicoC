@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.12)
 
 # Change your executable name to something creative!
-set(NAME JDBlink2) # <-- Name your project/executable here!
+set(NAME JDBlink1w) # <-- Name your project/executable here!
+set(PICO_BOARD pico_w)
 
 include(pico_sdk_import.cmake)
 
