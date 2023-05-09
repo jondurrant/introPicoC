@@ -32,4 +32,4 @@ fi
 
 
 
-openocd -s ${HOME}/pico/openocd/tcl/ -f interface/${interface} -f target/rp2040.cfg
+openocd -s ${HOME}/pico/openocd/tcl/ -f interface/${interface} -f target/rp2040.cfg -c "adapter speed ${speed}"
