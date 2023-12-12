@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ X${PICO_SWD} == X ]
 then
