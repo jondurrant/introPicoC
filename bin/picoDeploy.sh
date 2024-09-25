@@ -2,7 +2,7 @@
 
 if [ X${PICO_SWD} == X ]
 then
-	echo "PICO_SWD is not defined. Defaulting to RPI"
+	echo "PICO_SWD is not. Defaulting to RPI"
     export PICO_SWD="RPI"
 fi
 
@@ -14,8 +14,9 @@ fi
 
 echo "Using openocd interface ${PICO_SWD} to flash ${elf}"
 
-interface=picoprobe.cfg
+interface=cmsis-dap.cfg
 speed=5000
+target=rp2040.cfg
 if [ ${PICO_SWD} == "RPI" ]
 then
 	speed=1000
@@ -29,8 +30,13 @@ if [ ${PICO_SWD} == "DEBUGPROBE" ]
 then
     interface=cmsis-dap.cfg
 fi
+checkrp2350=`picotool info ${elf} | grep RP2350 | wc -l`
+if [ ${checkrp2350} -gt 0 ]
+then
+    target=rp2350.cfg
+fi
 
 
-openocd -s ${HOME}/pico/openocd/tcl/ -f interface/${interface} -f target/rp2040.cfg -c "adapter speed ${speed}" -c "program ${elf} verify reset exit"
+${HOME}/pico/openocd/src/openocd -s ${HOME}/pico/openocd/tcl/ -f interface/${interface} -f target/${target} -c "adapter speed ${speed}" -c "program ${elf} verify reset exit"
 echo Deployed
 arm-none-eabi-size ${elf}
