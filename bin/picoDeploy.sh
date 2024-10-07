@@ -2,14 +2,25 @@
 
 if [ X${PICO_SWD} == X ]
 then
-	echo "PICO_SWD is not. Defaulting to RPI"
-    export PICO_SWD="RPI"
+	echo "PICO_SWD is not. Defaulting to DEBUGPROBE"
+    export PICO_SWD="DEBUGPROBE"
 fi
 
-elf=`realpath src/*.elf`
-if [ X${1} != X ]
+if [[ $# -gt 0 ]]
 then
    elf=`realpath ${1}`
+   echo Case 1
+else
+   if [ -f src/*.elf ]
+   then
+      elf=`realpath src/*.elf`
+      echo Case 2
+   fi
+   if [ -f *.elf ]
+   then
+      elf=`realpath *.elf`
+      echo Case 3
+   fi
 fi
 
 echo "Using openocd interface ${PICO_SWD} to flash ${elf}"
