@@ -43,7 +43,7 @@ pico_sdk_init()
 add_subdirectory(src)
 
 #Set up files for the release packages
-install(CODE "execute_process(COMMAND $ENV{HOME}/bin/picoDeploy.sh ${CMAKE_CURRENT_BINARY_DIR}/src/${NAME}.elf)")
+install(CODE "execute_process(COMMAND $ENV{HOME}/bin/picoDeploy.sh ${CMAKE_CURRENT_BINARY_DIR}/${NAME}.elf)")
 
 # Set up files for the release packages
 install(FILES
