@@ -20,7 +20,8 @@ target=rp2350.cfg
 if [ ${PICO_SWD} == "RPI" ]
 then
 	speed=1000
-    interface=raspberrypi-swd.cfg
+    #interface=raspberrypi-swd.cfg
+    interface=raspberrypi-native.cfg
 fi
 if [ ${PICO_SWD} == "PICOPROBE" ]
 then
