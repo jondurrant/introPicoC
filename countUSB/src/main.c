@@ -6,6 +6,7 @@
 
 
 #include <stdio.h>
+#include <pico/stdlib.h>
 
 #define DELAY_LONG  1000 // in microseconds
 
