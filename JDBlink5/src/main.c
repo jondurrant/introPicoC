@@ -8,6 +8,7 @@
 #include "blink.h"
 #include <stdio.h>
 #include <stdbool.h>
+#include "pico/stdlib.h"
 
 #define DELAY_SHORT 200 // in microseconds
 #define DELAY_LONG  1000 // in microseconds
